@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength, sameAs } from '@vuelidate/validators'
-import AlgoInput from "~/components/ui/AlgoInput.vue";
+import AlgoInput from '~/components/ui/AlgoInput.vue'
 
 definePageMeta({
   layout: 'auth'

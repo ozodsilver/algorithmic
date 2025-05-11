@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Button from 'primevue/button';
-import AlgoInput from "~/components/ui/AlgoInput.vue";
-import Divider from 'primevue/divider';
+import Button from 'primevue/button'
+import AlgoInput from '~/components/ui/AlgoInput.vue'
+import Divider from 'primevue/divider'
 
 definePageMeta({
   layout: 'auth'
@@ -16,8 +16,8 @@ const navigateToSignUp = () => {
   navigateTo('/auth/sign-up')
 }
 
-const navigateToDashboard = () =>{
-  navigateTo('/dashboard')
+const navigateToDashboard = () => {
+  navigateTo('/home')
 }
 
 </script>
@@ -44,7 +44,10 @@ const navigateToDashboard = () =>{
 
       <nuxt-link class="forgot-password"> Forgot password?</nuxt-link>
 
-      <Button @click="navigateToDashboard" class="w-full  mt-5" severity="primary">
+      <Button
+          class="w-full  mt-5"
+          severity="primary"
+          @click="navigateToDashboard">
         Sign in
         <Icon name="mdi:login"/>
       </Button>
@@ -95,7 +98,7 @@ const navigateToDashboard = () =>{
     }
 
     .social {
-      @apply flex mt-10 gap-4;
+      @apply flex justify-center mt-10 gap-4;
     }
   }
 }

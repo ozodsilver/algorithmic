@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import InputText from 'primevue/inputtext';
+import InputText from 'primevue/inputtext'
 
 import { toRefs } from 'vue'
 
@@ -14,14 +14,14 @@ const props = withDefaults(defineProps<{
   placeholder: 'Enter text here',
   variant: 'outlined',
   invalid: false
-});
+})
 
 const { type, placeholder, variant, name, invalid } = toRefs(props);
 
 const model = defineModel('modelValue', {
   type: String,
   default: ''
-});
+})
 </script>
 
 <template>

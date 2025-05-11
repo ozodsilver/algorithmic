@@ -1,11 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'default'
+  title: 'Problems'
 })
 </script>
 
 <template>
-this is page
+  <div>
+    problems
+  </div>
 </template>
 
 <style scoped lang="scss">

@@ -9,25 +9,25 @@ const torusRef = ref<HTMLElement | null>(null)
 watch(() => route.fullPath, (newVal) => {
   if (newVal.includes('sign-up')) {
     gsap.fromTo(
-        '.torus__background',
-        {x: 0, y: 0},
-        {
-          x: -290,
-          y: -390,
-          duration: 0.3,
-          ease: 'expo.in',
-        }
+      '.torus__background',
+      {x: 0, y: 0},
+      {
+        x: -290,
+        y: -390,
+        duration: 0.3,
+        ease: 'expo.in',
+      }
     )
   } else {
     gsap.fromTo(
-        '.torus__background',
-        {x: 0, y: 0},
-        {
-          x: 0,
-          y: 0,
-          duration: 0.6,
-          ease: 'back.inOut',
-        }
+      '.torus__background',
+      {x: 0, y: 0},
+      {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: 'back.inOut',
+      }
     )
   }
 })

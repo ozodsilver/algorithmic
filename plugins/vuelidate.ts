@@ -1,7 +1,6 @@
-
-import { defineNuxtPlugin } from '#app'
-import { useVuelidate } from '@vuelidate/core'
+import {defineNuxtPlugin} from '#app'
+import {useVuelidate} from '@vuelidate/core'
 
 export default defineNuxtPlugin(() => {
-    void useVuelidate
+  void useVuelidate
 })
