@@ -28,7 +28,7 @@ const emit = defineEmits(['toggle'])
         <div class="flex text-slate-400 ">
           <button @click="emit('toggle')">
             <Icon
-              name="mdi:arrow-left-box"
+              name="mdi:arrow-left"
               :class="['transition-transform', props.collapsed ? 'rotate-180' : '']"
               class="text-lg"
             />

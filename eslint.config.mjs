@@ -8,11 +8,9 @@ import vueParser from 'vue-eslint-parser'
 
 export default withNuxt([
   {
-    // JavaScript config
     ...js.configs.recommended
   },
   {
-    // TypeScript config
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,

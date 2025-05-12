@@ -28,9 +28,9 @@ const title = computed(() => route.meta.title || 'Home')
 
 <style lang="scss" scoped>
 .navbar {
-  @apply p-4  pr-10 pt-2 flex justify-between items-center ;
+  @apply px-4  pr-10 pt-2 flex justify-between items-center ;
   .profile-block {
-    @apply flex text-teal-500 items-center gap-2;
+    @apply flex text-primary items-center gap-2;
   }
 }
 </style>
