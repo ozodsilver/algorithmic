@@ -21,10 +21,10 @@ const hasSettings = computed(() => {
     <div class="profile-block">
       <div v-if="!hasSettings" class="user" @click="navigateToProfile">
         <h2>Muzaffar Mirzaev</h2>
-        <NuxtImg
+        <img
           src="https://tanecooil.ru/assets/images/man.webp"
           class="w-[40px] h-[40px] rounded-full object-contain"
-        />
+        >
       </div>
 
       <Icon v-else name="mdi:cog-outline" />

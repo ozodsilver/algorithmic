@@ -100,9 +100,9 @@ const date = ref();
         <Card v-for="content in news" :key="content.title" class="mt-5">
           <template #content>
             <div class="news-card__image">
-              <NuxtImg
+              <img
                 :src="content.img"
-                class="w-2/4 h-[170px] object-cover rounded-xl"/>
+                class="w-2/4 h-[170px] object-cover rounded-xl">
 
               <div class="news-card__content">
                 <h1 class="title">{{ content.title }}</h1>

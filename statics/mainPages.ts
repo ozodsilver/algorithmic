@@ -31,5 +31,10 @@ export const pages: IMainPages[] = [
     path: '/usage',
     name: 'Usage',
     icon: 'mdi:information'
+  },
+  {
+    path: '/about-us',
+    name: 'About Us',
+    icon: 'mdi:account-box-edit-outline'
   }
 ]

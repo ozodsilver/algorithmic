@@ -5,9 +5,9 @@
 <template>
   <div class="user">
     <div class="user__image-wrapper">
-      <NuxtImg
+      <img
         class="image"
-        src="https://static.tildacdn.com/tild6138-3337-4037-b333-366134626434/shutterstock_1727575.jpg"/>
+        src="https://static.tildacdn.com/tild6138-3337-4037-b333-366134626434/shutterstock_1727575.jpg" alt="">
     </div>
     <h1 class="title">Roy hall</h1>
     <h2 class="username">@roy_hall</h2>

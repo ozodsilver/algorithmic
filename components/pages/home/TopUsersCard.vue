@@ -41,7 +41,7 @@ const levelPicture = (level: string) => {
           </div>
           <h2 class="absolute text-sm  bottom-0 right-0">{{ rating }}</h2>
 
-          <NuxtImg class="absolute w-[30px] -top-3 right-0" :src="levelPicture(level as string)" />
+          <img class="absolute w-[30px] -top-3 right-0" :src="levelPicture(level as string)" >
         </div>
       </template>
     </Card>
