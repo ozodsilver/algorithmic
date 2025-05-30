@@ -33,7 +33,7 @@ const levelPicture = (level: string) => {
     <Card>
       <template #content>
         <div class="flex gap-2 relative">
-          <NuxtImg class="w-[50px] h-[50px] rounded-xl object-cover" :src="userImage"/>
+          <img class="w-[50px] h-[50px] rounded-xl object-cover" :src="userImage" alt="">
           <div class="flex flex-col">
             <h1 class="font-bold text-dark text-sm m-0">{{ title }}</h1>
             <h2 class="text-xs text-light">{{ subtitle }}</h2>
@@ -41,7 +41,7 @@ const levelPicture = (level: string) => {
           </div>
           <h2 class="absolute text-sm  bottom-0 right-0">{{ rating }}</h2>
 
-          <img class="absolute w-[30px] -top-3 right-0" :src="levelPicture(level as string)" >
+          <img class="absolute w-[30px] -top-3 right-0" :src="levelPicture(level as string)"  alt="">
         </div>
       </template>
     </Card>
