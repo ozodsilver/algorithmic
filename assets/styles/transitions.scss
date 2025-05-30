@@ -7,3 +7,14 @@
   opacity: 0;
   transform: translateY(20px);
 }
+
+//fade
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

@@ -14,7 +14,7 @@ const emit = defineEmits(['toggle'])
   <aside
     :class="[
       'sidebar',
-      props.collapsed ? 'w-32' : 'w-[300px]'
+      props.collapsed ? 'w-24' : 'w-[270px]'
     ]"
   >
 
@@ -24,7 +24,7 @@ const emit = defineEmits(['toggle'])
         class="logo"
       />
       <div>
-        <h1 v-if="!props.collapsed" class="title">Algorithmic.uz</h1>
+        <h1 v-if="!props.collapsed" class="title">Algorithmic</h1>
         <div class="flex text-slate-400 ">
           <button @click="emit('toggle')">
             <Icon
@@ -40,15 +40,16 @@ const emit = defineEmits(['toggle'])
     <!-- Navigation Links -->
     <nav class="nav-block">
       <NuxtLink
-        v-for="link in pages"
+        v-for="(link, index) in pages"
         :key="link.name"
         :to="link.path"
         :exact-active-class="'active'"
         class="nav-block__link"
+        :class="[index === 0 ? 'mt-5' : 'mt-2']"
 
       >
-        <div class="nav-block__icon ">
-          <Icon :name="link.icon" class="text-xl"/>
+        <div class="nav-block__icon">
+          <Icon :name="link.icon" class="text-base"/>
         </div>
         <span v-if="!collapsed">{{ link.name }}</span>
       </NuxtLink>
@@ -58,11 +59,11 @@ const emit = defineEmits(['toggle'])
 
 <style lang="scss" scoped>
 .sidebar {
-  @apply h-full px-6  border-r transition-all  duration-300;
+  @apply h-full px-4 pr-2  border-r transition-all  duration-300;
   &__logo {
-    @apply flex  gap-2 border-b pb-3 items-center justify-center p-2 mt-4;
+    @apply flex  gap-2 border-b pb-3 items-center p-2 mt-4;
     .logo {
-      @apply w-[55px] h-[55px];
+      @apply w-[45px] h-[45px];
     }
 
     .title {
@@ -73,11 +74,11 @@ const emit = defineEmits(['toggle'])
   .nav-block {
     @apply flex flex-col gap-2 px-2;
     &__link {
-      @apply flex items-center gap-3 hover:bg-slate-50  p-3 mt-[20px] rounded-xl text-sm text-slate-400  transition;
+      @apply flex items-center gap-3 hover:bg-slate-50  p-3  rounded-xl text-sm text-slate-400  transition;
     }
 
     &__icon {
-      @apply flex   text-sm items-center justify-center w-[34px] h-[34px] rounded-lg bg-white text-primary shadow-xl ;
+      @apply flex   text-sm items-center justify-center w-[30px] h-[30px] rounded-lg bg-white text-primary  shadow-sm;
     }
 
     a.active .nav-block__icon {
@@ -86,8 +87,7 @@ const emit = defineEmits(['toggle'])
   }
 
   .active {
-    @apply bg-white font-semibold text-slate-500;
-    box-shadow: 0 20px 25px 0 #0000000D;
+    @apply bg-slate-50 font-semibold text-slate-500;
   }
 }
 </style>
