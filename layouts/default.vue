@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import Sidebar from '~/components/layouts/Sidebar.vue'
-import Navbar from '~/components/layouts/Navbar.vue'
+import Navbar from '~/components/layouts/navbar/Navbar.vue'
 
 const collapsed = ref(false)
 const toggleSidebar = () => {

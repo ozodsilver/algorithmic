@@ -20,8 +20,6 @@
     @apply text-center text-slate-600 m-0 text-lg font-semibold mb-3;
   }
 
-
-
   &-items {
     @apply  w-full flex-wrap gap-2 flex  rounded-lg;
     &__item{

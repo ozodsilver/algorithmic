@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const tailwindClasses = require('./composables/styles/useTailwindClasses.ts')
 module.exports = {
   content: [
     './components/**/*.{js,vue,ts}',
@@ -24,5 +25,9 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents(tailwindClasses)
+    },
+  ]
 }

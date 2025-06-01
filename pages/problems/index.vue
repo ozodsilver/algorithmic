@@ -51,8 +51,8 @@ const products = ref([{
   <div>
     <Filters/>
     <DataTable
-paginator :rows="5" :rows-per-page-options="[5, 10, 20, 50]" show-gridlines striped-rows
-               :value="products" class="w-full mt-5">
+      paginator :rows="5" :rows-per-page-options="[5, 10, 20, 50]" show-gridlines striped-rows
+      :value="products" class="w-full mt-5">
       <Column field="status" header="status" sortable style="width: 25%">
         <template #body="slotProps">
 

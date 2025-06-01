@@ -1,11 +1,11 @@
-.p-dropdown{
-  @apply h-[40px];
+.p-dropdown {
+  @apply flex-row-reverse border;
   .p-inputtext {
     border: none;
   }
 
-  .p-dropdown-label{
-    @apply relative top-1;
+  .p-dropdown-label {
+    @apply flex items-center text-sm text-slate-400 pl-0;
   }
 }
 

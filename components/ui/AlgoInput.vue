@@ -9,7 +9,9 @@ const props = withDefaults(defineProps<{
   variant?: 'filled' | 'outlined';
   name?: string;
   invalid?: boolean;
-  size?: string
+  size?: string,
+  id?: string;
+  mask?: string
 }>(), {
   type: 'text',
   placeholder: 'Enter text here',
@@ -18,7 +20,7 @@ const props = withDefaults(defineProps<{
   size: 'sm'
 })
 
-const {type, placeholder, variant, name, invalid} = toRefs(props);
+const {type, placeholder, variant, invalid, id} = toRefs(props);
 
 const model = defineModel('modelValue', {
   type: String,
@@ -42,10 +44,11 @@ const sizes = computed(() => {
   <div class="algo-input" :class="{'border-red-400' : invalid}">
     <Icon
       v-if="props.name"
-      :name
+      :name="props.name"
       class="text-2xl text-slate-400"
     />
     <InputText
+      :id
       v-model="model"
       :type
       :placeholder
@@ -53,13 +56,14 @@ const sizes = computed(() => {
       :invalid
       class="w-full"
       :class="sizes"
+
     />
   </div>
 </template>
 
 <style lang="scss">
 .algo-input {
-  @apply flex items-center gap-1  text-slate-500 transition rounded-lg px-2 focus-within:border-primary bg-white;
+  @apply flex items-center gap-1 border text-slate-500 transition rounded-lg px-2 focus-within:border-primary bg-white;
   .p-inputtext {
     border: none;
 

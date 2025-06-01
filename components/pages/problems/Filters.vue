@@ -17,9 +17,8 @@ const search = ref('')
     <AlgoInput
       v-model="search"
       name="mdi:magnify"
-      size="md"
       placeholder="type here.."
-    class="w-2/4"
+      class="w-2/4"
     />
     <div class="flex gap-5">
       <Dropdown

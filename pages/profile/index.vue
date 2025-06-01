@@ -20,20 +20,20 @@ definePageMeta({
 
         <Tab v-slot="{selected}">
           <button class="tab" :class="{'selected-tab' : selected}">
-            <Icon name="mdi:account" class="text-xl"/>
+            <Icon name="mdi:account" />
             Overview
           </button>
         </Tab>
 
         <Tab v-slot="{selected}">
           <button class="tab" :class="{'selected-tab' : selected}">
-            <Icon name="mdi:account" class="text-xl"/>
+            <Icon name="mdi:account"/>
             Submittions
           </button>
         </Tab>
 
         <Tab class="tab">
-          <Icon name="mdi:sort-bool-descending-variant" class="text-xl"/>
+          <Icon name="mdi:sort-bool-descending-variant" />
           Problems
         </Tab>
       </TabList>
@@ -61,7 +61,7 @@ definePageMeta({
 .profile-tabs {
   @apply mt-5;
   .tab {
-    @apply text-slate-500 outline-0 flex px-2 py-1 gap-2 items-center;
+    @apply text-slate-500 outline-0 flex px-2 py-1 gap-2 text-sm items-center;
   }
 
   .selected-tab {
