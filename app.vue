@@ -1,4 +1,5 @@
 <template>
+  <Toast />
   <Suspense>
     <template #default>
       <NuxtLayout>
@@ -13,3 +14,7 @@
     </template>
   </Suspense>
 </template>
+
+<script setup lang="ts">
+import Toast from 'primevue/toast'
+</script>
