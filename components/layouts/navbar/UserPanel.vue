@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+const emit = defineEmits(['close'])
+const close = ()=>{
+  emit('close')
+}
 </script>
 
 <template>
@@ -19,7 +23,7 @@
     <section class="main">
       <div class="main__block">
 
-        <NuxtLink to="/profile/edit-profile" class="item">
+        <NuxtLink to="/profile/edit-profile" class="item" @click="close">
           <Icon name="mdi:information-slab-circle-outline" class=" text-lg"/>
           <span class="item">Edit Profile</span>
         </NuxtLink>

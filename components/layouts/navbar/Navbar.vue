@@ -44,7 +44,7 @@ const toggleOverlay = (event: Event) => {
     </div>
 
     <OverlayPanel ref="op">
-      <UserPanel/>
+      <UserPanel @close="toggleOverlay"/>
     </OverlayPanel>
 
   </header>
