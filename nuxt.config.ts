@@ -35,4 +35,11 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
+  runtimeConfig: {
+    public: {
+      baseUrl: import.meta.env.BASE_API_URL,
+      mode: import.meta.env.NODE_ENV,
+    }
+  },
+
 })

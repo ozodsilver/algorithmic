@@ -1,0 +1,14 @@
+
+.p-toast-message-success{
+  @apply bg-green-100;
+  .p-toast-detail{
+    @apply text-green-600;
+  }
+}
+
+.p-toast-message-error{
+  @apply bg-red-100;
+  .p-toast-detail{
+    @apply text-red-600;
+  }
+}

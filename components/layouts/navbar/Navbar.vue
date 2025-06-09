@@ -38,7 +38,9 @@ const toggleOverlay = (event: Event) => {
 
       <Avatar v-badge.danger="4">
         <template #icon>
-          <Icon name='mdi:bell-outline' class="text-lg"/>
+      <NuxtLink to="/profile/notifications">
+        <Icon name='mdi:bell-outline' class="text-lg"/>
+      </NuxtLink>
         </template>
       </Avatar>
     </div>

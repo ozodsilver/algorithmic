@@ -8,7 +8,7 @@ const formData = reactive({
   facebook: '',
   linkedin: '',
   github: '',
-  youtube:''
+  youtube: ''
 });
 
 
@@ -31,42 +31,44 @@ const formData = reactive({
         rows="10"
         cols="30"/>
 
-      <div class="social__content__icons">
+      <form class="social__content__icons">
         <AlgoInput
           v-model="formData.telegram"
           name="mdi:telegram"
           placeholder="Telegram username"
-          class="col-span-4"
+          class="col-span-3"
         />
 
         <AlgoInput
           v-model="formData.facebook"
           name="mdi:facebook"
           placeholder="Facebook"
-          class="col-span-4"
+          class="col-span-3"
         />
 
         <AlgoInput
           v-model="formData.linkedin"
           name="mdi:linkedin"
           placeholder="Linkedin"
-          class="col-span-4"
+          class="col-span-3"
         />
 
         <AlgoInput
           v-model="formData.github"
           name="mdi:github"
           placeholder="Github"
-          class="col-span-4"
+          class="col-span-3"
         />
 
         <AlgoInput
           v-model="formData.youtube"
           name="mdi:github"
           placeholder="Youtube"
-          class="col-span-4"
+          class="col-span-3"
         />
-      </div>
+
+        <Button class="col-span-3" severity="primary">Save</Button>
+      </form>
     </div>
 
 

@@ -1,5 +1,27 @@
 <script setup lang="ts">
-
+import Dock from 'primevue/dock';
+const items = ref([
+  {
+    label: 'Finder',
+    icon: 'mdi:facebook-box',
+    link : '#'
+  },
+  {
+    label: 'App Store',
+    icon: 'mdi:instagram',
+    link : '#'
+  },
+  {
+    label: 'Photos',
+    icon: 'mdi:telegram',
+    link : '#'
+  },
+  {
+    label: 'Trash',
+    icon: 'mdi:github',
+    link : '#'
+  }
+]);
 </script>
 
 <template>
@@ -12,12 +34,21 @@
     <h1 class="title">Roy hall</h1>
     <h2 class="username">@roy_hall</h2>
     <div class="socials">
-      <a href="#">
-        <Icon name="mdi:facebook-box" class="icon"/>
-      </a>
-      <Icon name="mdi:instagram" class="icon"/>
-      <Icon name="mdi:telegram" class="icon"/>
-      <Icon name="mdi:github" class="icon"/>
+
+      <Dock :model="items">
+        <template #icon="{ item }">
+          <a href="#">
+            <Icon :name="`${item.icon}`" class="text-lg" />
+          </a>
+        </template>
+      </Dock>
+
+<!--      <a href="#">-->
+<!--        <Icon name="mdi:facebook-box" class="icon"/>-->
+<!--      </a>-->
+<!--      <Icon name="mdi:instagram" class="icon"/>-->
+<!--      <Icon name="mdi:telegram" class="icon"/>-->
+<!--      <Icon name="mdi:github" class="icon"/>-->
     </div>
 
     <div class="bottom-panel">

@@ -1,0 +1,8 @@
+.p-panel {
+  .p-panel-header {
+    @apply bg-slate-400 text-white;
+  }
+  .p-panel-content{
+    @apply pt-4;
+  }
+}

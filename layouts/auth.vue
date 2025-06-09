@@ -58,7 +58,9 @@ watch(() => route.fullPath, (newVal) => {
       </article>
       <div class="auth__form" aria-labelledby="form-title">
         <Transition name="page" mode="out-in">
+         <div class="slot-wrapper">
           <slot/>
+         </div>
         </Transition>
       </div>
 
