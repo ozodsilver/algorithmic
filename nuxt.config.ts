@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line no-undef
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -15,6 +14,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-primevue',
     '@nuxt/icon',
+    '@nuxtjs/turnstile'
   ],
   plugins: [
     '~/plugins/vuelidate',
@@ -35,11 +35,23 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
+
+
   runtimeConfig: {
+    turnstile: {
+      secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY
+    },
+  
     public: {
-      baseUrl: import.meta.env.BASE_API_URL,
-      mode: import.meta.env.NODE_ENV,
-    }
+      baseUrl: process.env.BASE_API_URL,
+      mode: process.env.NODE_ENV,
+      turnstile: {
+        siteKey: process.env.NUXT_TURNSTILE_SITE_KEY, 
+      }
+    
+    },
+
+
   },
 
 })

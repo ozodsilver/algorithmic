@@ -6,6 +6,7 @@ import { useToast } from 'primevue/usetoast'
 import { required } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 
+
 const toast = useToast()
 const token = useCookie('token')
 const refreshToken = useCookie('refreshToken')
@@ -27,6 +28,7 @@ const rules = reactive({
 const v$ = useVuelidate(rules, form)
 
 const isLoading = ref(false)
+const captchaToken = ref('')
 
 const navigateToSignUp = () => {
   navigateTo('/auth/sign-up')
@@ -44,6 +46,9 @@ const navigateToDashboard = async () => {
       }>('/Authentication/Login', {
         method: 'POST',
         body: form,
+        query: {
+          captchaToken: captchaToken.value
+        }
       })
       if (response.success) {
         token.value = response.data.accessToken
@@ -92,6 +97,8 @@ const navigateToDashboard = async () => {
 
       <nuxt-link class="forgot-password"> Forgot password?</nuxt-link>
 
+      <NuxtTurnstile  class="mt-5 mx-auto flex justify-center" v-model="captchaToken" />
+
       <Button :loading="isLoading" type="submit" class="w-full mt-5" severity="primary">
         Sign in
         <Icon name="mdi:login" />
@@ -137,5 +144,9 @@ const navigateToDashboard = async () => {
       @apply flex justify-center mt-10 gap-4;
     }
   }
+
 }
+
+
+
 </style>
