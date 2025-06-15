@@ -91,7 +91,7 @@ const emit = defineEmits(['toggle'])
     }
 
     &__icon {
-      @apply flex   text-sm items-center justify-center w-[30px] h-[30px] rounded-lg bg-white text-primary  shadow-sm;
+      @apply flex   text-sm items-center justify-center w-[30px] h-[30px] rounded-lg bg-white text-primary;
     }
 
     a.active .nav-block__icon {

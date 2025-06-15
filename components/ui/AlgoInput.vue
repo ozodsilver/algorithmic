@@ -1,62 +1,69 @@
 <script setup lang="ts">
 import InputText from 'primevue/inputtext'
 
-import {toRefs} from 'vue'
+import { toRefs } from 'vue'
 
-const props = withDefaults(defineProps<{
-  type?: string;
-  placeholder?: string;
-  variant?: 'filled' | 'outlined';
-  name?: string;
-  invalid?: boolean;
-  size?: string,
-  id?: string;
-  mask?: string
-}>(), {
-  type: 'text',
-  placeholder: 'Enter text here',
-  variant: 'outlined',
-  invalid: false,
-  size: 'sm'
-})
+const props = withDefaults(
+  defineProps<{
+    type?: string
+    placeholder?: string
+    variant?: 'filled' | 'outlined'
+    name?: string
+    invalid?: boolean
+    size?: string
+    id?: string
+    mask?: string
+  }>(),
+  {
+    type: 'text',
+    placeholder: 'Enter text here',
+    variant: 'outlined',
+    invalid: false,
+    size: 'sm',
+  }
+)
 
-const {type, placeholder, variant, invalid, id} = toRefs(props);
+const { type, placeholder, variant, invalid, id } = toRefs(props)
 
 const model = defineModel('modelValue', {
   type: String,
-  default: ''
+  default: '',
 })
 
 const sizes = computed(() => {
   switch (props.size) {
     case 'sm':
-      return '';
+      return ''
     case 'md':
-      return 'h-[40px]';
+      return 'h-[40px]'
     default:
-      return '';
+      return ''
   }
-});
+})
+
+const isPasswordVisible = ref(false)
 </script>
 
 <template>
-
-  <div class="algo-input" :class="{'border-red-400' : invalid}">
-    <Icon
-      v-if="props.name"
-      :name="props.name"
-      class="text-2xl text-slate-400"
-    />
+  <div class="algo-input" :class="{ 'border-red-400': invalid }">
+    <Icon v-if="props.name" :name="props.name" class="text-2xl text-slate-400" />
     <InputText
+      autocomplete="on"
       :id
       v-model="model"
-      :type
+      :type="type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type"
       :placeholder
       :variant
       :invalid
       class="w-full"
       :class="sizes"
+    />
 
+    <Icon
+      v-if="type === 'password'"
+      :name="isPasswordVisible ? 'mdi:eye-outline' : 'mdi:eye-off'"
+      class="text-2xl text-slate-400 cursor-pointer"
+      @click="isPasswordVisible = !isPasswordVisible"
     />
   </div>
 </template>
@@ -71,7 +78,6 @@ const sizes = computed(() => {
       border: none;
       outline: none;
     }
-
   }
 }
 </style>
