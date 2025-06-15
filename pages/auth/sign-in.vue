@@ -6,8 +6,9 @@ import { useToast } from 'primevue/usetoast'
 import { required } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 
-const error = useError()
 const toast = useToast()
+const token = useCookie('token')
+const refreshToken = useCookie('refreshToken')
 
 definePageMeta({
   layout: 'auth',
@@ -25,6 +26,8 @@ const rules = reactive({
 
 const v$ = useVuelidate(rules, form)
 
+const isLoading = ref(false)
+
 const navigateToSignUp = () => {
   navigateTo('/auth/sign-up')
 }
@@ -33,11 +36,18 @@ const navigateToDashboard = async () => {
   try {
     v$.value.$touch()
     if (!v$.value.$invalid) {
-      const response = await useCustomFetch('/Authentication/Login', {
+      isLoading.value = true
+      const response = await useCustomFetch<{
+        accessToken: string
+        refreshToken: string
+        message: string
+      }>('/Authentication/Login', {
         method: 'POST',
         body: form,
       })
       if (response.success) {
+        token.value = response.data.accessToken
+        refreshToken.value = response.data.refreshToken
         navigateTo('/home')
         toast.add({ severity: 'success', summary: 'Success', detail: response.message, life: 5000 })
       }
@@ -46,6 +56,8 @@ const navigateToDashboard = async () => {
     }
   } catch (e: any) {
     toast.add({ severity: 'error', summary: 'Error', detail: e?.data?.message, life: 5000 })
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -56,7 +68,7 @@ const navigateToDashboard = async () => {
       <h1 class="content__title">Algorithmic.uz</h1>
 
       <AlgoInput
-        v-model="form.emailOrUserName"
+        v-model.trim="form.emailOrUserName"
         class="w-full mt-[20px]"
         name="mdi:email-outline"
         :invalid="v$.emailOrUserName.$error"
@@ -80,7 +92,7 @@ const navigateToDashboard = async () => {
 
       <nuxt-link class="forgot-password"> Forgot password?</nuxt-link>
 
-      <Button type="submit" class="w-full mt-5" severity="primary">
+      <Button :loading="isLoading" type="submit" class="w-full mt-5" severity="primary">
         Sign in
         <Icon name="mdi:login" />
       </Button>
