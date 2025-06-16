@@ -96,7 +96,7 @@ const navigateToDashboard = async () => {
       <p v-if="v$.password.$error" class="text-red-500 text-sm mt-2">Password is required</p>
 
       <nuxt-link class="forgot-password"> Forgot password?</nuxt-link>
-
+      
       <NuxtTurnstile  class="mt-5 mx-auto flex justify-center" v-model="captchaToken" />
 
       <Button :loading="isLoading" type="submit" class="w-full mt-5" severity="primary">
