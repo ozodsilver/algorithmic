@@ -107,6 +107,7 @@ const logOut = () => {
     }
   }
 
+  
   .active {
     @apply bg-slate-50 font-semibold text-slate-500;
   }
