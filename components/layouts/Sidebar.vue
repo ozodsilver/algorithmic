@@ -1,33 +1,28 @@
 <script setup lang="ts">
-import {defineProps, defineEmits} from 'vue'
-import {pages} from '~/statics/mainPages'
+import { defineProps, defineEmits } from 'vue'
+import { pages } from '~/statics/mainPages'
+import { useAuth } from '~/composables/auth/useAuth'
 
 const props = defineProps<{
   collapsed: boolean
 }>()
 const emit = defineEmits(['toggle'])
 
-
+const auth = useAuth()
+const logOut = () => {
+  auth.logout()
+}
 </script>
 
 <template>
-  <aside
-    :class="[
-      'sidebar',
-      props.collapsed ? 'w-24' : 'w-[270px]'
-    ]"
-  >
-
+  <aside :class="['sidebar', props.collapsed ? 'w-24' : 'w-[270px]']">
     <NuxtLink to="/home" class="sidebar__logo">
-      <NuxtImg
-        src="/images/algo-logo.svg"
-        class="logo"
-      />
+      <NuxtImg src="/images/algo-logo.svg" class="logo" />
       <div>
         <h1 v-if="!props.collapsed" class="title">Algorithmic</h1>
       </div>
 
-      <div class="flex text-slate-400 ">
+      <div class="flex text-slate-400">
         <button @click="emit('toggle')">
           <Icon
             name="mdi:arrow-left"
@@ -48,23 +43,21 @@ const emit = defineEmits(['toggle'])
           :exact-active-class="'active'"
           class="nav-block__link"
           :class="[index === 0 ? 'mt-5' : 'mt-2']"
-
         >
           <div class="nav-block__icon">
-            <Icon :name="link.icon" class="text-base"/>
+            <Icon  :name="link.icon" class="text-base" />
           </div>
           <span v-if="!collapsed">{{ link.name }}</span>
         </NuxtLink>
       </div>
 
-      <NuxtLink class="logout" to="/">
+      <button class="logout" @click="logOut">
         <div class="icon-block">
-          <Icon name="mdi:logout" class="rotate-180  text-sm"/>
+          <Icon name="mdi:logout" class="rotate-180 text-sm" />
         </div>
-        <span class="text">  Log out</span>
-      </NuxtLink>
+        <span class="text"> Log out</span>
+      </button>
     </nav>
-
   </aside>
 </template>
 
@@ -78,7 +71,7 @@ const emit = defineEmits(['toggle'])
     }
 
     .title {
-      @apply text-lg text-slate-500 font-semibold m-0 ;
+      @apply text-lg text-slate-500 font-semibold m-0;
     }
   }
 
@@ -99,15 +92,15 @@ const emit = defineEmits(['toggle'])
     }
 
     .logout {
-      @apply mb-3   transition-all rounded-lg flex gap-3 items-center text-slate-400 text-sm pl-2.5 ;
+      @apply mb-3   transition-all rounded-lg flex gap-3 items-center text-slate-400 text-sm pl-2.5;
       .icon-block {
         @apply bg-white transition-all rounded-lg w-[30px] h-[30px] flex items-center justify-center shadow-sm;
       }
-      &:hover{
-        .icon-block{
+      &:hover {
+        .icon-block {
           @apply text-primary;
         }
-        .text{
+        .text {
           @apply text-primary;
         }
       }
