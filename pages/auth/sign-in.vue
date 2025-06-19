@@ -6,7 +6,6 @@ import { useToast } from 'primevue/usetoast'
 import { required } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 
-
 const toast = useToast()
 const token = useCookie('token')
 const refreshToken = useCookie('refreshToken')
@@ -47,14 +46,19 @@ const navigateToDashboard = async () => {
         method: 'POST',
         body: form,
         query: {
-          captchaToken: captchaToken.value
-        }
+          captchaToken: captchaToken.value,
+        },
       })
       if (response.success) {
         token.value = response.data.accessToken
         refreshToken.value = response.data.refreshToken
         navigateTo('/home')
-        toast.add({ severity: 'success', summary: 'Success', detail: response.message, life: 5000 })
+        toast.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: response.message,
+          life: 5000,
+        })
       }
     } else {
       console.log('Validation failed')
@@ -96,12 +100,13 @@ const navigateToDashboard = async () => {
       <p v-if="v$.password.$error" class="text-red-500 text-sm mt-2">Password is required</p>
 
       <nuxt-link class="forgot-password"> Forgot password?</nuxt-link>
-      
-      <NuxtTurnstile  class="mt-5 mx-auto flex justify-center" v-model="captchaToken" />
+
+      <NuxtTurnstile class="mt-5 mx-auto flex justify-center" v-model="captchaToken" />
 
       <Button :loading="isLoading" type="submit" class="w-full mt-5" severity="primary">
         Sign in
-        <Icon name="mdi:login" />
+        <Icon name="mdi:login" v-if="!isLoading" />
+        <Icon name="mdi:loading" class="animate-spin " v-else />
       </Button>
 
       <Divider class="mt-10 text-slate-400" align="center"> or </Divider>
@@ -144,9 +149,5 @@ const navigateToDashboard = async () => {
       @apply flex justify-center mt-10 gap-4;
     }
   }
-
 }
-
-
-
 </style>

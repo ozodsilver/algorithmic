@@ -111,7 +111,7 @@ const handleSubmit = async () => {
   .content {
     @apply w-full ;
     &__title {
-      @apply text-center text-2xl font-semibold;
+      @apply text-center text-2xl font-semibold ;
     }
   }
 }

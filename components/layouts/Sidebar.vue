@@ -45,7 +45,7 @@ const logOut = () => {
           :class="[index === 0 ? 'mt-5' : 'mt-2']"
         >
           <div class="nav-block__icon">
-            <Icon  :name="link.icon" class="text-base" />
+            <Icon  :name="link.icon" class="text-base dark:text-slate-100" />
           </div>
           <span v-if="!collapsed">{{ link.name }}</span>
         </NuxtLink>
@@ -63,7 +63,7 @@ const logOut = () => {
 
 <style lang="scss" scoped>
 .sidebar {
-  @apply h-full px-4 pr-2  border-r border-r-white transition-all  duration-300;
+  @apply h-full px-4 pr-2  border-r dark:border-r-slate-700 border-r-white transition-all  duration-300;
   &__logo {
     @apply flex  gap-2 pb-1 items-center pl-4 pt-3 mt-4;
     .logo {
@@ -71,7 +71,7 @@ const logOut = () => {
     }
 
     .title {
-      @apply text-lg text-slate-500 font-semibold m-0;
+      @apply text-lg text-slate-500 font-semibold m-0 dark:text-slate-100;
     }
   }
 
@@ -80,11 +80,11 @@ const logOut = () => {
     height: calc(100vh - 100px);
 
     &__link {
-      @apply flex items-center gap-3 hover:bg-slate-50  p-3  rounded-xl text-sm text-slate-400  transition;
+      @apply flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700  p-3  rounded-xl text-sm text-slate-400  transition;
     }
 
     &__icon {
-      @apply flex   text-sm items-center justify-center w-[30px] h-[30px] rounded-lg bg-white text-primary;
+      @apply flex   text-sm items-center justify-center w-[30px] h-[30px] rounded-lg bg-white dark:bg-slate-600 text-primary;
     }
 
     a.active .nav-block__icon {
@@ -94,7 +94,7 @@ const logOut = () => {
     .logout {
       @apply mb-3   transition-all rounded-lg flex gap-3 items-center text-slate-400 text-sm pl-2.5;
       .icon-block {
-        @apply bg-white transition-all rounded-lg w-[30px] h-[30px] flex items-center justify-center shadow-sm;
+        @apply bg-white dark:bg-slate-600 transition-all rounded-lg w-[30px] h-[30px] flex items-center justify-center shadow-sm;
       }
       &:hover {
         .icon-block {
@@ -109,7 +109,7 @@ const logOut = () => {
 
   
   .active {
-    @apply bg-slate-50 font-semibold text-slate-500;
+    @apply bg-slate-50 dark:bg-slate-700 font-semibold text-slate-500 dark:text-slate-100;
   }
 }
 </style>

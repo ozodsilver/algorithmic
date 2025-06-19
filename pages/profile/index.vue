@@ -1,63 +1,70 @@
 <script setup lang="ts">
-import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue'
-import Overview from '~/components/pages/profile/overview/Overview.vue';
-import Submittions from '~/components/pages/profile/submittions/Submittions.vue';
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+import Overview from '~/components/pages/profile/overview/Overview.vue'
+import Submittions from '~/components/pages/profile/submittions/Submittions.vue'
+import Settings from '~/components/pages/profile/overview/Settings.vue'
 
 definePageMeta({
   layout: 'default',
-  title: 'Welcome Roy Hall'
+  title: 'Welcome Roy Hall',
 })
-
 </script>
 
-
 <template>
-
   <div class="profile-tabs">
-
     <TabGroup>
-      <TabList  class="list">
-
-        <Tab v-slot="{selected}">
-          <button class="tab" :class="{'selected-tab' : selected}">
+      <TabList class="list">
+        <Tab v-slot="{ selected }">
+          <button class="tab" :class="{ 'selected-tab': selected }">
             <Icon name="mdi:account" />
             Overview
           </button>
         </Tab>
 
-        <Tab v-slot="{selected}">
-          <button class="tab" :class="{'selected-tab' : selected}">
-            <Icon name="mdi:account"/>
+        <Tab v-slot="{ selected }">
+          <button class="tab" :class="{ 'selected-tab': selected }">
+            <Icon name="mdi:account" />
             Submittions
           </button>
         </Tab>
 
-        <Tab class="tab">
-          <Icon name="mdi:sort-bool-descending-variant" />
-          Problems
+        <!-- <Tab v-slot="{ selected }">
+          <button class="tab" :class="{ 'selected-tab': selected }">
+            <Icon name="mdi:sort-bool-descending-variant" />
+            Problems
+          </button>
+        </Tab> -->
+
+        <Tab v-slot="{ selected }">
+          <button class="tab" :class="{ 'selected-tab': selected }">
+            <Icon name="mdi:settings" />
+            Settings
+          </button>
         </Tab>
       </TabList>
 
-
       <TabPanels class="mt-14">
         <TabPanel>
-          <Overview/>
+          <Overview />
         </TabPanel>
+
         <TabPanel>
-          <Submittions/>
+          <Submittions />
         </TabPanel>
-        <TabPanel>Content 3</TabPanel>
+
+        <!-- <TabPanel>
+         <Problems/>
+        </TabPanel> -->
+
+        <TabPanel>
+          <Settings />
+        </TabPanel>
       </TabPanels>
-
-
     </TabGroup>
   </div>
-
 </template>
 
-
 <style lang="scss" scoped>
-
 .profile-tabs {
   @apply mt-5;
   .tab {
@@ -72,5 +79,4 @@ definePageMeta({
     @apply flex justify-end gap-5   items-center mt-5;
   }
 }
-
 </style>

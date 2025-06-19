@@ -1,6 +1,10 @@
 
 .p-toast-message-success{
   @apply bg-green-100;
+  backdrop-filter: blur(14px) saturate(187%);
+  -webkit-backdrop-filter: blur(14px) saturate(187%);
+  background-color: rgba(71, 241, 125, 0.139);
+  border: 2px solid white;
   .p-toast-detail{
     @apply text-green-600;
   }

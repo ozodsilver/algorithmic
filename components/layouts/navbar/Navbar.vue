@@ -23,7 +23,7 @@ const toggleOverlay = (event: Event) => {
 
 <template>
   <header class="navbar">
-    <h1 class="text-xl font-bold">{{ title }}</h1>
+    <h1 class="text-xl font-bold dark:text-slate-100">{{ title }}</h1>
 
     <div class="profile-block">
       <div v-if="!hasSettings" class="user" @click="navigateToProfile">
@@ -55,7 +55,7 @@ const toggleOverlay = (event: Event) => {
 
 <style lang="scss" scoped>
 .navbar {
-  @apply px-4 h-[70px] shadow-custom-light pr-10 py-3 flex justify-between items-center ;
+  @apply px-4 h-[70px] shadow-custom-light dark:shadow-custom-dark pr-10 py-3 flex justify-between items-center dark:border-b dark:border-slate-700 ;
   .profile-block {
     @apply flex text-primary items-center gap-2;
     .user {

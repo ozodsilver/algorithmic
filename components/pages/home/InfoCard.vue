@@ -9,7 +9,7 @@ const {title, icon, count, percentage} = defineProps<{
 
 <template>
   <div class="info-card">
-    <Avatar size="large" class="bg-slate-400">
+    <Avatar size="large" class="bg-slate-400 dark:bg-slate-500">
       <template #icon>
         <Icon :name="icon" class="text-2xl text-white"/>
       </template>
@@ -18,7 +18,7 @@ const {title, icon, count, percentage} = defineProps<{
     <div class="info">
       <h1 class="title">{{title}}</h1>
       <div class="flex items-center gap-2">
-        <h2 class="font-bold">{{count}}</h2>
+        <h2 class="font-bold dark:text-slate-100">{{count}}</h2>
         <span class="text-teal-300 text-xs font-bold">+{{percentage}}%</span>
       </div>
     </div>
@@ -27,11 +27,11 @@ const {title, icon, count, percentage} = defineProps<{
 
 <style scoped lang="scss">
 .info-card {
-  @apply bg-white w-full transition  hover:shadow-xl hover:scale-[1.1] hover:translate-y-[-5px] flex gap-2 p-3 rounded-xl shadow-custom-light;
+  @apply bg-white dark:bg-slate-600 w-full transition  hover:shadow-xl hover:scale-[1.1] hover:translate-y-[-5px] flex gap-2 p-3 rounded-xl shadow-custom-light dark:shadow-custom-dark;
   .info {
     @apply flex flex-col justify-between;
     .title {
-      @apply text-slate-400 m-0 text-sm;
+      @apply text-slate-400 dark:text-slate-100 m-0 text-sm;
     }
   }
 }

@@ -9,6 +9,7 @@ module.exports = {
     './app.vue',
     './error.vue',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors : {
@@ -22,8 +23,10 @@ module.exports = {
 
       boxShadow:{
         'custom-light' : '0 0 80px rgba(189, 189, 189, 0.2)',
+        'custom-dark' : '0 0 0px rgba(189, 189, 189, 0.2)',
       }
     },
+
   },
   plugins: [
     function ({ addComponents }) {

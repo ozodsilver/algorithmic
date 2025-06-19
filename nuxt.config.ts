@@ -14,11 +14,19 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-primevue',
     '@nuxt/icon',
-    '@nuxtjs/turnstile'
+    '@nuxtjs/turnstile',
+    '@nuxtjs/color-mode',
   ],
   plugins: [
     '~/plugins/vuelidate',
   ],
+
+  colorMode: {
+    preference: 'system', // default: 'system'
+    fallback: 'light',   // agar sistema aniqlay olmasa
+    classSuffix: '',     // klass nomiga suffix qo'shish ('' - yo'q)
+    storageKey: 'nuxt-color-mode' // localStorage'dagi kalit nomi
+  },
 
   postcss: {
     plugins: {

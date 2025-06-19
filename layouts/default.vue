@@ -7,10 +7,12 @@ const collapsed = ref(false)
 const toggleSidebar = () => {
   collapsed.value = !collapsed.value
 }
+
+
 </script>
 
 <template>
-  <div class="flex h-screen bg-gray-100  text-gray-900">
+  <div class="flex h-screen bg-gray-100 dark:bg-gray-800  text-gray-900">
     <!-- Sidebar -->
     <Sidebar :collapsed="collapsed" @toggle="toggleSidebar" />
 

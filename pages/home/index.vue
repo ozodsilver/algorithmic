@@ -132,7 +132,7 @@ const date = ref();
         :level="user.level"
         :rating="user.rating"/>
 
-      <div class="pb-3 border-b">
+      <div class="pb-3 border-b dark:border-slate-600">
         <Calendar v-model="date" selection-mode="multiple" class="mt-3" inline show-week/>
       </div>
 
@@ -150,19 +150,19 @@ const date = ref();
     }
 
     .news-card {
-      @apply mt-6 max-h-[70vh] pr-4  overflow-auto ;
+      @apply mt-6 max-h-[70vh] pr-4   overflow-auto  ;
       &__image {
-        @apply flex justify-between gap-2;
+        @apply flex justify-between gap-5;
       }
 
       &__content {
         @apply flex flex-col w-2/4;
         .title {
-          @apply text-xl font-bold;
+          @apply text-xl font-bold dark:text-slate-100;
         }
 
         .description {
-          @apply text-slate-400 text-sm;
+          @apply text-slate-400 dark:text-slate-300 text-sm;
         }
       }
 
@@ -180,7 +180,7 @@ const date = ref();
   &__top-users {
     @apply w-[350px];
     .title {
-      @apply text-center text-base m-0 font-bold;
+      @apply text-center text-base m-0 font-bold dark:text-slate-100;
     }
   }
 }
