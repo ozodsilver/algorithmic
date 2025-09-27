@@ -8,30 +8,51 @@ definePageMeta({
 })
 
 const form = ref({
-  fullName: '',
+  firstName: '',
+  lastName: '',
   username: '',
   email: '',
   password: '',
-  passwordAgain: ''
+  // passwordAgain: ''
 })
 
+
 const rules = computed(() => ({
-  fullName: { required },
+  firstName: { required },
+  lastName: { required },
   username: { required },
   email: { required, email },
   password: { required, minLength: minLength(6) },
-  passwordAgain: { required, sameAsPassword: sameAs(form.value.password) }
+  // passwordAgain: { required, sameAsPassword: sameAs(form.value.password) }
 }))
 
 const v$ = useVuelidate(rules, form)
 
 const handleSubmit = async () => {
-  v$.value.$touch()
-  if (!v$.value.$invalid) {
-    console.log('Form valid:', form.value)
-  } else {
-    console.log('Validation failed')
+  try {
+      v$.value.$touch()
+    if (!v$.value.$invalid) {
+      const postData = {
+        firstName: form.value.firstName,
+        lastName: form.value.lastName,
+        userName: form.value.username,
+        email: form.value.email,
+        password: form.value.password
+      }
+      const response = await useCustomFetch('/authentication/register', {
+        method: 'POST',
+        body: postData
+      })
+      console.log(response)
+      
+    } else {
+      console.log('Validation failed')
+    }
+  } catch (error) {
+    console.log(error);
+    
   }
+  
 }
 </script>
 
@@ -42,11 +63,18 @@ const handleSubmit = async () => {
       <h1 class="content__title">Algorithmic.uz</h1>
 
       <AlgoInput
-          v-model="form.fullName"
+          v-model="form.firstName"
           class="w-full mt-[20px]"
           name="mdi:account"
-          :invalid="v$.fullName.$error"
-          placeholder="Full name"
+          :invalid="v$.firstName.$error"
+          placeholder="First name"
+      />
+      <AlgoInput
+          v-model="form.lastName"
+          class="w-full mt-[20px]"
+          name="mdi:account"
+          :invalid="v$.lastName.$error"
+          placeholder="Last name"
       />
 
       <AlgoInput
@@ -76,18 +104,18 @@ const handleSubmit = async () => {
           placeholder="password"
       />
 
-      <AlgoInput
+      <!-- <AlgoInput
           v-model="form.passwordAgain"
           class="w-full mt-[15px]"
           name="mdi:lock-outline"
           :invalid="v$.passwordAgain.$error"
           type="password"
           placeholder="Password again"
-      />
+      /> -->
       
-      <p v-if="v$.passwordAgain.$error" class="text-red-500 text-sm mt-2">
+      <!-- <p v-if="v$.passwordAgain.$error" class="text-red-500 text-sm mt-2">
         Passwords do not match
-      </p>
+      </p> -->
 
       <Button type="submit" severity="primary" class="mt-5 w-full">
         Sign up
